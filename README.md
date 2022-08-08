@@ -1,3 +1,3 @@
-# helper-pckg
+# Helper Package
 
 Helpful optimized functions.

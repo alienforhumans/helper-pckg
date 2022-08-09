@@ -18,13 +18,13 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm test
+      - store_test_results:
+          path: ../test-results
       - run: npm run report
       - store_artifacts:
           path: coverage
       - run: npm run cov:send
       - run: npm run cov:check
-      - store_test_results:
-          path: ../test-results
   'node-12':
     docker:
       - image: cimg/node:12.13
@@ -40,13 +40,13 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm test
+      - store_test_results:
+          path: ../test-results
       - run: npm run report
       - store_artifacts:
           path: coverage
       - run: npm run cov:send
       - run: npm run cov:check
-      - store_test_results:
-          path: ../test-results
   'node-latest':
     docker:
       - image: cimg/node:lts
@@ -62,13 +62,13 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: npm test
+      - store_test_results:
+          path: ../test-results
       - run: npm run report
       - store_artifacts:
           path: coverage
       - run: npm run cov:send
       - run: npm run cov:check
-      - store_test_results:
-          path: ../test-results
 
 workflows:
   version: 2

@@ -69,3 +69,31 @@ test('should sort array of objects', (t) => {
 
   t.deepEqual(sortedArray, expectedResult, JSON.stringify(sortedArray));
 });
+
+test('should sort array with 1 number element', (t) => {
+  const mockArray = [5];
+  const expectedResult = [5];
+
+  const sortedArray = quickSortNumberArray(mockArray);
+
+  t.deepEqual(sortedArray, expectedResult);
+});
+
+test('should sort array with 1 object element', (t) => {
+  const mockArray = [
+    {
+      name: 'foo1',
+      salary: 45000,
+    },
+  ];
+  const expectedResult = [
+    {
+      name: 'foo1',
+      salary: 45000,
+    },
+  ];
+
+  const sortedArray = quickSortObjectArray(mockArray, 'salary');
+
+  t.deepEqual(sortedArray, expectedResult);
+});
